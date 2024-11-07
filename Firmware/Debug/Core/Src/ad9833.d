@@ -1,4 +1,4 @@
-Core/Src/ad9833.o: ../Core/Src/ad9833.c ../Core/Inc/AD9833.h \
+Core/Src/ad9833.o: ../Core/Src/ad9833.c ../Core/Inc/ad9833.h \
  ../Core/Inc/spi.h ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
@@ -25,7 +25,7 @@ Core/Src/ad9833.o: ../Core/Src/ad9833.c ../Core/Inc/AD9833.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h
 
-../Core/Inc/AD9833.h:
+../Core/Inc/ad9833.h:
 
 ../Core/Inc/spi.h:
 

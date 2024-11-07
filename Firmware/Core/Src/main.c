@@ -26,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ad9833.h"
+#include "lcd.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -91,6 +92,9 @@ int main(void)
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
   AD9833_Init(WAVE_SINE, 1000000, 0);
+  LCD_Init();
+  LCD_Backlight(1);
+  LCD_WriteString("Olaoluwa");
   /* USER CODE END 2 */
 
   /* Infinite loop */

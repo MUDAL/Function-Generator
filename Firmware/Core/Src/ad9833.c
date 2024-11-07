@@ -17,7 +17,7 @@
  * Slightly modified by Olaoluwa Raji
  */
 
-#include "AD9833.h"
+#include "ad9833.h"
 
 uint8_t _waveform = WAVEFORM_SINE;
 uint8_t _sleep_mode = NO_POWERDOWN;

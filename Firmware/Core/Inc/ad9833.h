@@ -65,58 +65,58 @@ typedef enum
 /*
  * @brief Set Chip Select pin to LOW state
  */
-void AD9833_Select(void);
+extern void AD9833_Select(void);
 
 /*
  * @brief Set Chip Select pin to HIGH state
  */
-void AD9833_Unselect(void);
+extern void AD9833_Unselect(void);
 
 /*
  * @brief Send data by SPI protocol
  * @param Data variable in uint16_t format
 */
-void AD9833_WriteRegister(uint16_t data);
+extern void AD9833_WriteRegister(uint16_t data);
 
 /*
  * @brief Update Control Register Bits
  */
-void AD9833_WriteCfgReg(void);
+extern void AD9833_WriteCfgReg(void);
 
 /*
  * @brief Set signal generation frequency
  * @param Frequency value in uint32_t format
  */
-void AD9833_SetFrequency(uint32_t freq);
+extern void AD9833_SetFrequency(uint32_t freq);
 
 /*
  * @brief Set signal generation waveform
  * @param Waveform in WaveDef Type declared in .h file
  */
-void AD9833_SetWaveform(WaveDef Wave);
+extern void AD9833_SetWaveform(WaveDef Wave);
 
 /*
  * @brief Set signal generation phase
  * @param Phase in degrees in uint16_t format. Value can be large then 360
  */
-void AD9833_SetPhase(uint16_t phase_deg);
+extern void AD9833_SetPhase(uint16_t phase_deg);
 
 /*
  * @brief AD9833 Initial Configuration
  * @param Type of Waveform, Frequency, Phase in degrees
  */
-void AD9833_Init(WaveDef Wave, uint32_t freq, uint16_t phase_deg);
+extern void AD9833_Init(WaveDef Wave, uint32_t freq, uint16_t phase_deg);
 
 /*
  * @brief Enable or disable the output of the AD9833
  * @param Output state (ON/OFF)
  */
-void AD9833_OutputEnable(uint8_t output_state);
+extern void AD9833_OutputEnable(uint8_t output_state);
 
 /*
  * @brief Set Sleep Mode Function (Explained in datasheet Table 14)
  * @param Mode of sleep function defined in title
  */
-void AD9833_SleepMode(uint8_t mode);
+extern void AD9833_SleepMode(uint8_t mode);
 
 #endif /* INC_AD9833_H_ */
