@@ -319,8 +319,8 @@ int main(void)
               }
               else
               {
-                  static PressType top_button_press = IDLE;
-                  static PressType bottom_button_press = IDLE;
+                  PressType top_button_press = IDLE;
+                  PressType bottom_button_press = IDLE;
 
                   top_button_press = Button_HandlePress(&top_button);
                   bottom_button_press = Button_HandlePress(&bottom_button);
