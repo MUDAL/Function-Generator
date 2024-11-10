@@ -40,8 +40,8 @@ void AD9833_WriteRegister(uint16_t data)
 	AD9833_Select();
 	uint8_t LByte = data & 0xff;
 	uint8_t HByte = (data >> 8) & 0xff;
-	HAL_SPI_Transmit(&hspi1, &HByte, 1, HAL_MAX_DELAY);
-	HAL_SPI_Transmit(&hspi1, &LByte, 1, HAL_MAX_DELAY);
+	HAL_SPI_Transmit(&hspi1, &HByte, 1, 50);
+	HAL_SPI_Transmit(&hspi1, &LByte, 1, 50);
 	AD9833_Unselect();
 }
 

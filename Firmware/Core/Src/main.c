@@ -25,17 +25,40 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+#include <math.h>
 #include "ad9833.h"
 #include "lcd.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+typedef enum
+{
+	ST_HIGHLIGHT_WAVE = 0,
+	ST_HIGHLIGHT_FREQ,
+	ST_SELECT_WAVE,
+	ST_SELECT_FREQ
+}State;
 
+typedef enum
+{
+	IDLE = 0,
+	LONG_PRESS,
+	QUICK_PRESS
+}PressState;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define DEFAULT_FREQ		500 // Hz
+#define WAVE_NAME_LEN		3
+#define NUM_COLS			16
+#define ROW_INACTIVE		"  "
+#define ROW_HIGHLIGHT 		"- "
+#define ROW_SELECT	 		"->"
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -57,6 +80,79 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+static bool Button_Debounce(GPIO_TypeDef* gpio_port,
+							uint16_t gpio_pin,
+							uint32_t debounce_delay)
+{
+	bool debounced = false;
+
+	if(HAL_GPIO_ReadPin(gpio_port, gpio_pin) == GPIO_PIN_RESET)
+	{
+		HAL_Delay(debounce_delay);
+		if(HAL_GPIO_ReadPin(gpio_port, gpio_pin) == GPIO_PIN_RESET)
+		{
+			debounced = true;
+		}
+	}
+	return debounced;
+}
+
+static bool Button_ShortPress(GPIO_TypeDef* gpio_port,
+							  uint16_t gpio_pin,
+							  bool* old_state_ptr)
+{
+	const uint32_t delay = 50; // Milliseconds
+	bool short_press = false;
+
+	if(Button_Debounce(gpio_port, gpio_pin, delay) && !(*old_state_ptr))
+	{
+		short_press = true;
+		*old_state_ptr = true;
+	}
+	else if(!Button_Debounce(gpio_port, gpio_pin, delay) && (*old_state_ptr))
+	{
+		*old_state_ptr = false;
+	}
+	return short_press;
+}
+
+static PressState Button_HandlePress(GPIO_TypeDef* gpio_port,
+							      	 uint16_t  gpio_pin,
+							         bool* old_state_ptr,
+									 uint32_t* init_time_ptr)
+{
+	// Times: in milliseconds
+	const uint32_t delay = 50;
+	const uint32_t max_release_time = 400;
+
+	PressState ret_value = IDLE;
+
+	if(Button_Debounce(gpio_port, gpio_pin, delay))
+	{
+		if(!(*old_state_ptr))
+		{
+			*old_state_ptr = true;
+			*init_time_ptr = HAL_GetTick();
+		}
+		else
+		{
+			ret_value = LONG_PRESS;
+		}
+	}
+	else
+	{
+		if(*old_state_ptr)
+		{
+			*old_state_ptr = false;
+			if((HAL_GetTick() - *init_time_ptr) < max_release_time)
+			{
+				ret_value = QUICK_PRESS;
+			}
+		}
+	}
+	return ret_value;
+}
 
 /* USER CODE END 0 */
 
@@ -91,16 +187,252 @@ int main(void)
   MX_I2C1_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-  AD9833_Init(WAVE_SINE, 1000000, 0);
+
+  State state = ST_HIGHLIGHT_WAVE;
+  PressState top_switch_state = IDLE;
+  PressState bottom_switch_state = IDLE;
+
+  bool top_switch_pressed = false;
+  bool center_switch_pressed = false;
+  bool bottom_switch_pressed = false;
+
+  uint32_t top_switch_init_time = 0;
+  uint32_t bottom_switch_init_time = 0;
+
+  const char space = ' ';
+  char row1_buffer[NUM_COLS + 1] = "- WAVE:";
+  char row2_buffer[NUM_COLS + 1] = "  FREQ:";
+
+  // Starting points for data to be displayed on both LCD rows
+  uint8_t row1_buffer_data_index = strlen(row1_buffer);
+  uint8_t row2_buffer_data_index = strlen(row2_buffer);
+
+  const char wave_names[3][WAVE_NAME_LEN + 1] = {"SIN", "SQR", "TRI"};
+  const WaveDef waves[3] = {WAVE_SINE, WAVE_SQUARE, WAVE_TRIANGLE};
+  uint8_t wave_select = 0;
+
+  uint32_t frequency_Hz = DEFAULT_FREQ;
+  uint32_t frequency_kHz = frequency_Hz  / 1000;
+  uint32_t frequency_MHz = frequency_kHz / 1000;
+
+  // Factor to speed up or slow down frequency increments/decrements
+  uint8_t factor_select = 0;
+  uint32_t factors[6] = {1, 10, 100, 1000, 10000, 100000};
+
+  // String manipulation for LCD data display
+  size_t freq_str_len = 0;
+  char freq_str[10] = {0};
+  sprintf(freq_str, "%ld%s", frequency_Hz, "Hz");
+
+  // Preparing default content to be displayed on the LCD
+  memset(row1_buffer + row1_buffer_data_index, space,
+		 NUM_COLS - row1_buffer_data_index);
+
+  memcpy(row1_buffer + row1_buffer_data_index,
+		 wave_names[wave_select],
+		 WAVE_NAME_LEN);
+
+  memcpy(row2_buffer + row2_buffer_data_index,
+		 freq_str,
+		 strlen(freq_str));
+
+  // Hardware initializations
   LCD_Init();
-  LCD_Backlight(1);
-  LCD_WriteString("Olaoluwa");
+  AD9833_Init(WAVE_SINE, frequency_Hz, 0);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  switch(state)
+	  {
+		  case ST_HIGHLIGHT_WAVE:
+			  memcpy(row1_buffer, ROW_HIGHLIGHT, 2);
+			  memcpy(row2_buffer, ROW_INACTIVE,  2);
+			  if(Button_ShortPress(SW_CENTER_GPIO_Port,
+					  	  	  	   SW_CENTER_Pin,
+								   &center_switch_pressed))
+			  {
+				  state = ST_SELECT_WAVE;
+			  }
+			  else if(Button_ShortPress(SW_BOTTOM_GPIO_Port,
+					  	  	  	  	    SW_BOTTOM_Pin,
+										&bottom_switch_pressed))
+			  {
+				  state = ST_HIGHLIGHT_FREQ;
+			  }
+			  break;
+		  case ST_HIGHLIGHT_FREQ:
+			  memcpy(row1_buffer, ROW_INACTIVE,  2);
+			  memcpy(row2_buffer, ROW_HIGHLIGHT, 2);
+			  if(Button_ShortPress(SW_CENTER_GPIO_Port,
+					  	  	  	   SW_CENTER_Pin,
+								   &center_switch_pressed))
+			  {
+				  state = ST_SELECT_FREQ;
+			  }
+			  else if(Button_ShortPress(SW_TOP_GPIO_Port,
+					  	  	  	  	    SW_TOP_Pin,
+										&top_switch_pressed))
+			  {
+				  state = ST_HIGHLIGHT_WAVE;
+			  }
+			  break;
+		  case ST_SELECT_WAVE:
+			  memcpy(row1_buffer, ROW_SELECT,   2);
+			  memcpy(row2_buffer, ROW_INACTIVE, 2);
+			  if(Button_ShortPress(SW_CENTER_GPIO_Port,
+					  	  	  	   SW_CENTER_Pin,
+								   &center_switch_pressed))
+			  {
+				  state = ST_HIGHLIGHT_WAVE;
+			  }
+			  else if(Button_ShortPress(SW_TOP_GPIO_Port,
+					  	  	  	  	    SW_TOP_Pin,
+										&top_switch_pressed))
+			  {
+				  if(wave_select == 2)
+				  {
+					  wave_select = 0;
+				  }
+				  else
+				  {
+					  wave_select++;
+				  }
+			  }
+			  else if(Button_ShortPress(SW_BOTTOM_GPIO_Port,
+					  	  	  	  	  	SW_BOTTOM_Pin,
+										&bottom_switch_pressed))
+			  {
+				  if(wave_select == 0)
+				  {
+					  wave_select = 2;
+				  }
+				  else
+				  {
+					  wave_select--;
+				  }
+			  }
+			  AD9833_SetWaveform(waves[wave_select]);
+
+			  memcpy(row1_buffer + row1_buffer_data_index,
+					 wave_names[wave_select],
+					 WAVE_NAME_LEN);
+			  break;
+		  case ST_SELECT_FREQ:
+			  memcpy(row1_buffer, ROW_INACTIVE, 2);
+			  memcpy(row2_buffer, ROW_SELECT,   2);
+			  if(Button_ShortPress(SW_CENTER_GPIO_Port,
+					  	  	  	   SW_CENTER_Pin,
+								   &center_switch_pressed))
+			  {
+				  state = ST_HIGHLIGHT_FREQ;
+			  }
+			  else
+			  {
+				  top_switch_state = Button_HandlePress(SW_TOP_GPIO_Port,
+				  										SW_TOP_Pin,
+				  										&top_switch_pressed,
+														&top_switch_init_time);
+
+				  bottom_switch_state = Button_HandlePress(SW_BOTTOM_GPIO_Port,
+				  										   SW_BOTTOM_Pin,
+				  										   &bottom_switch_pressed,
+														   &bottom_switch_init_time);
+				  switch(top_switch_state)
+				  {
+					  case IDLE:
+						  break;
+					  case LONG_PRESS:
+						  if(frequency_MHz != 10)
+						  {
+							  frequency_Hz += factors[factor_select];
+						  }
+						  break;
+					  case QUICK_PRESS:
+						  if(factor_select != 5)
+						  {
+							  factor_select++;
+						  }
+						  break;
+				  }
+
+				  switch(bottom_switch_state)
+				  {
+					  case IDLE:
+						  break;
+					  case LONG_PRESS:
+						  if(frequency_Hz > factors[factor_select])
+						  {
+							  frequency_Hz -= factors[factor_select];
+						  }
+						  else
+						  {
+							  frequency_Hz = 0;
+						  }
+						  break;
+					  case QUICK_PRESS:
+						  if(factor_select != 0)
+						  {
+							  factor_select--;
+						  }
+						  break;
+				  }
+			  }
+			  AD9833_SetFrequency(frequency_Hz);
+			  // Quotients
+			  frequency_kHz = frequency_Hz  / 1000;
+			  frequency_MHz = frequency_kHz / 1000;
+			  // Divide by 10 to allow 2 decimal point frequency display
+			  uint32_t remainder_kHz = lround((frequency_Hz  % 1000) / 10.0);
+			  uint32_t remainder_MHz = lround((frequency_kHz % 1000) / 10.0);
+
+			  if(frequency_Hz < 1000)
+			  {
+				  sprintf(freq_str, "%ld.00%s", frequency_Hz, "Hz");
+			  }
+			  else if(frequency_kHz < 1000)
+			  {
+				  if(remainder_kHz < 10)
+				  {
+					  sprintf(freq_str, "%ld.0%ld%s", frequency_kHz, remainder_kHz, "kHz");
+				  }
+				  else if(remainder_kHz >= 10 && remainder_kHz < 100)
+				  {
+					  sprintf(freq_str, "%ld.%ld%s", frequency_kHz, remainder_kHz, "kHz");
+				  }
+			  }
+			  else if(frequency_MHz < 1000)
+			  {
+				  if(remainder_MHz < 10)
+				  {
+					  sprintf(freq_str, "%ld.0%ld%s", frequency_MHz, remainder_MHz, "MHz");
+				  }
+				  else if(remainder_MHz >= 10 && remainder_MHz < 100)
+				  {
+					  sprintf(freq_str, "%ld.%ld%s", frequency_MHz, remainder_MHz, "MHz");
+				  }
+			  }
+
+			  freq_str_len = strlen(freq_str);
+
+			  memset(row2_buffer + row2_buffer_data_index, space,
+					 NUM_COLS - row2_buffer_data_index);
+
+			  memcpy(row2_buffer + row2_buffer_data_index, freq_str, freq_str_len);
+			  break;
+		  default:
+			  break;
+	  }
+	  // Last column of 1st row to show frequency update speed
+	  row1_buffer[NUM_COLS - 1] = factor_select + '0';
+
+	  LCD_SetCursor(0, 0);
+	  LCD_WriteString(row1_buffer);
+	  LCD_SetCursor(1, 0);
+	  LCD_WriteString(row2_buffer);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

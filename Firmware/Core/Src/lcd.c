@@ -50,10 +50,10 @@ static void LCD_WriteNibble(uint8_t nibble, uint8_t rs)
 	data |= rs << RS_BIT;
 	data |= backlight_state << BL_BIT; // Include backlight state in data
 	data |= 1 << EN_BIT;
-	HAL_I2C_Master_Transmit(&hi2c1, I2C_ADDR << 1, &data, 1, 100);
+	HAL_I2C_Master_Transmit(&hi2c1, I2C_ADDR << 1, &data, 1, 50);
 	HAL_Delay(1);
 	data &= ~(1 << EN_BIT);
-	HAL_I2C_Master_Transmit(&hi2c1, I2C_ADDR << 1, &data, 1, 100);
+	HAL_I2C_Master_Transmit(&hi2c1, I2C_ADDR << 1, &data, 1, 50);
 }
 
 static void LCD_SendCmd(uint8_t cmd)
@@ -91,6 +91,7 @@ void LCD_Init(void)
 	LCD_SendCmd(ENTRY_MODE_INCREMENT_CURSOR);
 	LCD_SendCmd(CLEAR_DISPLAY);
 	HAL_Delay(2);
+	LCD_Backlight(1); // Activate the backlight
 }
 
 void LCD_WriteString(char *str)
