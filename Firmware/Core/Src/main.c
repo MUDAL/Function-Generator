@@ -98,25 +98,6 @@ static bool Button_Debounce(GPIO_TypeDef* gpio_port,
     return debounced;
 }
 
-static bool Button_ShortPress(GPIO_TypeDef* gpio_port,
-                              uint16_t gpio_pin,
-                              bool* old_state_ptr)
-{
-    const uint32_t delay = 50; // Milliseconds
-    bool short_press = false;
-
-    if(Button_Debounce(gpio_port, gpio_pin, delay) && !(*old_state_ptr))
-    {
-        short_press = true;
-        *old_state_ptr = true;
-    }
-    else if(!Button_Debounce(gpio_port, gpio_pin, delay) && (*old_state_ptr))
-    {
-        *old_state_ptr = false;
-    }
-    return short_press;
-}
-
 static PressState Button_HandlePress(GPIO_TypeDef* gpio_port,
                                      uint16_t  gpio_pin,
                                      bool* old_state_ptr,
@@ -197,6 +178,7 @@ int main(void)
   bool bottom_switch_pressed = false;
 
   uint32_t top_switch_init_time = 0;
+  uint32_t center_switch_init_time = 0;
   uint32_t bottom_switch_init_time = 0;
 
   const char space = ' ';
@@ -252,15 +234,17 @@ int main(void)
               memcpy(row1_buffer, ROW_HIGHLIGHT, 2);
               memcpy(row2_buffer, ROW_INACTIVE,  2);
 
-              if(Button_ShortPress(SW_CENTER_GPIO_Port,
-                                   SW_CENTER_Pin,
-                                   &center_switch_pressed))
+              if(Button_HandlePress(SW_CENTER_GPIO_Port,
+                                    SW_CENTER_Pin,
+                                    &center_switch_pressed,
+                                    &center_switch_init_time) == QUICK_PRESS)
               {
                   state = ST_SELECT_WAVE;
               }
-              else if(Button_ShortPress(SW_BOTTOM_GPIO_Port,
-                                        SW_BOTTOM_Pin,
-                                        &bottom_switch_pressed))
+              else if(Button_HandlePress(SW_BOTTOM_GPIO_Port,
+                                         SW_BOTTOM_Pin,
+                                         &bottom_switch_pressed,
+                                         &bottom_switch_init_time) == QUICK_PRESS)
               {
                   state = ST_HIGHLIGHT_FREQ;
               }
@@ -270,15 +254,17 @@ int main(void)
               memcpy(row1_buffer, ROW_INACTIVE,  2);
               memcpy(row2_buffer, ROW_HIGHLIGHT, 2);
 
-              if(Button_ShortPress(SW_CENTER_GPIO_Port,
-                                   SW_CENTER_Pin,
-                                   &center_switch_pressed))
+              if(Button_HandlePress(SW_CENTER_GPIO_Port,
+                                    SW_CENTER_Pin,
+                                    &center_switch_pressed,
+                                    &center_switch_init_time) == QUICK_PRESS)
               {
                   state = ST_SELECT_FREQ;
               }
-              else if(Button_ShortPress(SW_TOP_GPIO_Port,
-                                        SW_TOP_Pin,
-                                        &top_switch_pressed))
+              else if(Button_HandlePress(SW_TOP_GPIO_Port,
+                                         SW_TOP_Pin,
+                                         &top_switch_pressed,
+                                         &top_switch_init_time) == QUICK_PRESS)
               {
                   state = ST_HIGHLIGHT_WAVE;
               }
@@ -288,15 +274,17 @@ int main(void)
               memcpy(row1_buffer, ROW_SELECT,   2);
               memcpy(row2_buffer, ROW_INACTIVE, 2);
 
-              if(Button_ShortPress(SW_CENTER_GPIO_Port,
-                                   SW_CENTER_Pin,
-                                   &center_switch_pressed))
+              if(Button_HandlePress(SW_CENTER_GPIO_Port,
+                                    SW_CENTER_Pin,
+                                    &center_switch_pressed,
+                                    &center_switch_init_time) == QUICK_PRESS)
               {
                   state = ST_HIGHLIGHT_WAVE;
               }
-              else if(Button_ShortPress(SW_TOP_GPIO_Port,
-                                        SW_TOP_Pin,
-                                        &top_switch_pressed))
+              else if(Button_HandlePress(SW_TOP_GPIO_Port,
+                                         SW_TOP_Pin,
+                                         &top_switch_pressed,
+                                         &top_switch_init_time) == QUICK_PRESS)
               {
                   if(wave_select == 2)
                   {
@@ -307,9 +295,10 @@ int main(void)
                       wave_select++;
                   }
               }
-              else if(Button_ShortPress(SW_BOTTOM_GPIO_Port,
-                                        SW_BOTTOM_Pin,
-                                        &bottom_switch_pressed))
+              else if(Button_HandlePress(SW_BOTTOM_GPIO_Port,
+                                         SW_BOTTOM_Pin,
+                                         &bottom_switch_pressed,
+                                         &bottom_switch_init_time) == QUICK_PRESS)
               {
                   if(wave_select == 0)
                   {
@@ -332,9 +321,10 @@ int main(void)
               memcpy(row1_buffer, ROW_INACTIVE, 2);
               memcpy(row2_buffer, ROW_SELECT,   2);
 
-              if(Button_ShortPress(SW_CENTER_GPIO_Port,
-                                   SW_CENTER_Pin,
-                                   &center_switch_pressed))
+              if(Button_HandlePress(SW_CENTER_GPIO_Port,
+                                    SW_CENTER_Pin,
+                                    &center_switch_pressed,
+                                    &center_switch_init_time) == QUICK_PRESS)
               {
                   state = ST_HIGHLIGHT_FREQ;
               }
