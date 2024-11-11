@@ -111,10 +111,8 @@ static PressType Button_HandlePress(ButtonStruct* button_ptr)
 {
     const uint32_t max_release_time = 650; // In milliseconds
     PressType return_value = IDLE;
-    bool debounced_press = Button_Debounce(button_ptr, GPIO_PIN_RESET);
-    bool debounced_release = Button_Debounce(button_ptr, GPIO_PIN_SET);
 
-    if(debounced_press)
+    if(Button_Debounce(button_ptr, GPIO_PIN_RESET))
     {
         if(button_ptr->old_state == GPIO_PIN_SET)
         {
@@ -126,7 +124,7 @@ static PressType Button_HandlePress(ButtonStruct* button_ptr)
             return_value = LONG_PRESS;
         }
     }
-    else if(debounced_release)
+    else if(Button_Debounce(button_ptr, GPIO_PIN_SET))
     {
         if(button_ptr->old_state == GPIO_PIN_RESET)
         {
