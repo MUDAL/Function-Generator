@@ -1054,49 +1054,50 @@ LOAD C:/ST/STM32CubeCLT_1.15.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/
  .text._sbrk_r  0x08000f88       0x20 C:/ST/STM32CubeCLT_1.15.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-sbrkr.o)
                 0x08000f88                _sbrk_r
  .text.Button_HandlePress
-                0x08000fa8       0x78 CMakeFiles/function_generator.dir/Core/Src/main.c.obj
+                0x08000fa8       0x74 CMakeFiles/function_generator.dir/Core/Src/main.c.obj
  .text.SystemClock_Config
-                0x08001020       0x64 CMakeFiles/function_generator.dir/Core/Src/main.c.obj
-                0x08001020                SystemClock_Config
+                0x0800101c       0x64 CMakeFiles/function_generator.dir/Core/Src/main.c.obj
+                0x0800101c                SystemClock_Config
  .text.startup.main
-                0x08001084      0x98c CMakeFiles/function_generator.dir/Core/Src/main.c.obj
-                0x08001084                main
+                0x08001080      0x98c CMakeFiles/function_generator.dir/Core/Src/main.c.obj
+                0x08001080                main
  .text.Error_Handler
-                0x08001a10        0x4 CMakeFiles/function_generator.dir/Core/Src/main.c.obj
-                0x08001a10                Error_Handler
+                0x08001a0c        0x4 CMakeFiles/function_generator.dir/Core/Src/main.c.obj
+                0x08001a0c                Error_Handler
  .text.MX_GPIO_Init
-                0x08001a14       0xd8 CMakeFiles/function_generator.dir/Core/Src/gpio.c.obj
-                0x08001a14                MX_GPIO_Init
+                0x08001a10       0xd8 CMakeFiles/function_generator.dir/Core/Src/gpio.c.obj
+                0x08001a10                MX_GPIO_Init
  .text.MX_I2C1_Init
-                0x08001aec       0x3c CMakeFiles/function_generator.dir/Core/Src/i2c.c.obj
-                0x08001aec                MX_I2C1_Init
+                0x08001ae8       0x3c CMakeFiles/function_generator.dir/Core/Src/i2c.c.obj
+                0x08001ae8                MX_I2C1_Init
  .text.HAL_I2C_MspInit
-                0x08001b28       0x64 CMakeFiles/function_generator.dir/Core/Src/i2c.c.obj
-                0x08001b28                HAL_I2C_MspInit
+                0x08001b24       0x64 CMakeFiles/function_generator.dir/Core/Src/i2c.c.obj
+                0x08001b24                HAL_I2C_MspInit
  .text.MX_SPI1_Init
-                0x08001b8c       0x44 CMakeFiles/function_generator.dir/Core/Src/spi.c.obj
-                0x08001b8c                MX_SPI1_Init
+                0x08001b88       0x44 CMakeFiles/function_generator.dir/Core/Src/spi.c.obj
+                0x08001b88                MX_SPI1_Init
  .text.HAL_SPI_MspInit
-                0x08001bd0       0x68 CMakeFiles/function_generator.dir/Core/Src/spi.c.obj
-                0x08001bd0                HAL_SPI_MspInit
+                0x08001bcc       0x68 CMakeFiles/function_generator.dir/Core/Src/spi.c.obj
+                0x08001bcc                HAL_SPI_MspInit
  .text.LCD_Init
-                0x08001c38      0x328 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
-                0x08001c38                LCD_Init
+                0x08001c34      0x328 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
+                0x08001c34                LCD_Init
  .text.LCD_WriteString
-                0x08001f60       0xb8 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
-                0x08001f60                LCD_WriteString
+                0x08001f5c       0xb8 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
+                0x08001f5c                LCD_WriteString
  .text.LCD_SetCursor
-                0x08002018       0xb0 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
-                0x08002018                LCD_SetCursor
+                0x08002014       0xb0 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
+                0x08002014                LCD_SetCursor
  .text.AD9833_WriteCfgReg
-                0x080020c8       0x9c CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
-                0x080020c8                AD9833_WriteCfgReg
+                0x080020c4       0x9c CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
+                0x080020c4                AD9833_WriteCfgReg
  .text.AD9833_SetWaveform
-                0x08002164       0x30 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
-                0x08002164                AD9833_SetWaveform
+                0x08002160       0x30 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
+                0x08002160                AD9833_SetWaveform
  .text.AD9833_SetFrequency
-                0x08002194       0xbc CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
-                0x08002194                AD9833_SetFrequency
+                0x08002190       0xbc CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
+                0x08002190                AD9833_SetFrequency
+ *fill*         0x0800224c        0x4 
  .text.AD9833_Init
                 0x08002250      0x18c CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
                 0x08002250                AD9833_Init

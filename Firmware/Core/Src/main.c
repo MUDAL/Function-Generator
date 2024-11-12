@@ -109,7 +109,7 @@ static bool Button_Debounce(ButtonStruct* button_ptr, GPIO_PinState expected_sta
 
 static PressType Button_HandlePress(ButtonStruct* button_ptr)
 {
-    const uint32_t max_release_time = 650; // In milliseconds
+    const uint32_t max_release_time = 350; // In milliseconds
     PressType return_value = IDLE;
 
     if(Button_Debounce(button_ptr, GPIO_PIN_RESET))
@@ -124,9 +124,9 @@ static PressType Button_HandlePress(ButtonStruct* button_ptr)
             return_value = LONG_PRESS;
         }
     }
-    else if(Button_Debounce(button_ptr, GPIO_PIN_SET))
+    else if(button_ptr->old_state == GPIO_PIN_RESET)
     {
-        if(button_ptr->old_state == GPIO_PIN_RESET)
+        if(Button_Debounce(button_ptr, GPIO_PIN_SET))
         {
             button_ptr->old_state = GPIO_PIN_SET;
             if((HAL_GetTick() - button_ptr->time_pressed) < max_release_time)
@@ -174,19 +174,19 @@ int main(void)
 
   State state = ST_HIGHLIGHT_WAVE;
 
-  ButtonStruct top_button = {.debounce_delay = 5,
+  ButtonStruct top_button = {.debounce_delay = 25,
                              .old_state = GPIO_PIN_SET,
                              .pin = SW_TOP_Pin,
                              .port = SW_TOP_GPIO_Port,
                              .time_pressed = 0};
 
-  ButtonStruct center_button = {.debounce_delay = 5,
+  ButtonStruct center_button = {.debounce_delay = 25,
                                 .old_state = GPIO_PIN_SET,
                                 .pin = SW_CENTER_Pin,
                                 .port = SW_CENTER_GPIO_Port,
                                 .time_pressed = 0};
 
-  ButtonStruct bottom_button = {.debounce_delay = 5,
+  ButtonStruct bottom_button = {.debounce_delay = 25,
                                 .old_state = GPIO_PIN_SET,
                                 .pin = SW_BOTTOM_Pin,
                                 .port = SW_BOTTOM_GPIO_Port,
