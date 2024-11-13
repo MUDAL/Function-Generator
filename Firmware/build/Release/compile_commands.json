@@ -25,15 +25,15 @@
 },
 {
   "directory": "C:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/build/Release",
-  "command": "C:\\ST\\STM32CubeCLT_1.15.0\\GNU-tools-for-STM32\\bin\\arm-none-eabi-gcc.exe -DSTM32F103xB -DUSE_HAL_DRIVER -IC:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/cmake/stm32cubemx/../../Core/Inc -IC:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -IC:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -IC:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -IC:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include  -mcpu=cortex-m3  -Wall -Wextra -Wpedantic -fdata-sections -ffunction-sections -Os -g0 -mcpu=cortex-m3  -Wall -Wextra -Wpedantic -fdata-sections -ffunction-sections -Os -g0 -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\function_generator.dir\\Core\\Src\\lcd.c.obj -c C:\\Users\\OLAOLUWA\\Desktop\\Function_Generator\\Firmware\\Core\\Src\\lcd.c",
-  "file": "C:\\Users\\OLAOLUWA\\Desktop\\Function_Generator\\Firmware\\Core\\Src\\lcd.c",
-  "output": "CMakeFiles\\function_generator.dir\\Core\\Src\\lcd.c.obj"
-},
-{
-  "directory": "C:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/build/Release",
   "command": "C:\\ST\\STM32CubeCLT_1.15.0\\GNU-tools-for-STM32\\bin\\arm-none-eabi-gcc.exe -DSTM32F103xB -DUSE_HAL_DRIVER -IC:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/cmake/stm32cubemx/../../Core/Inc -IC:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -IC:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -IC:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -IC:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include  -mcpu=cortex-m3  -Wall -Wextra -Wpedantic -fdata-sections -ffunction-sections -Os -g0 -mcpu=cortex-m3  -Wall -Wextra -Wpedantic -fdata-sections -ffunction-sections -Os -g0 -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\function_generator.dir\\Core\\Src\\ad9833.c.obj -c C:\\Users\\OLAOLUWA\\Desktop\\Function_Generator\\Firmware\\Core\\Src\\ad9833.c",
   "file": "C:\\Users\\OLAOLUWA\\Desktop\\Function_Generator\\Firmware\\Core\\Src\\ad9833.c",
   "output": "CMakeFiles\\function_generator.dir\\Core\\Src\\ad9833.c.obj"
+},
+{
+  "directory": "C:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/build/Release",
+  "command": "C:\\ST\\STM32CubeCLT_1.15.0\\GNU-tools-for-STM32\\bin\\arm-none-eabi-gcc.exe -DSTM32F103xB -DUSE_HAL_DRIVER -IC:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/cmake/stm32cubemx/../../Core/Inc -IC:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -IC:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -IC:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -IC:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include  -mcpu=cortex-m3  -Wall -Wextra -Wpedantic -fdata-sections -ffunction-sections -Os -g0 -mcpu=cortex-m3  -Wall -Wextra -Wpedantic -fdata-sections -ffunction-sections -Os -g0 -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\function_generator.dir\\Core\\Src\\lcd.c.obj -c C:\\Users\\OLAOLUWA\\Desktop\\Function_Generator\\Firmware\\Core\\Src\\lcd.c",
+  "file": "C:\\Users\\OLAOLUWA\\Desktop\\Function_Generator\\Firmware\\Core\\Src\\lcd.c",
+  "output": "CMakeFiles\\function_generator.dir\\Core\\Src\\lcd.c.obj"
 },
 {
   "directory": "C:/Users/OLAOLUWA/Desktop/Function_Generator/Firmware/build/Release",

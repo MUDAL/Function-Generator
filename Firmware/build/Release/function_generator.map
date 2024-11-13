@@ -266,13 +266,6 @@ Discarded input sections
  .bss           0x00000000        0x0 CMakeFiles/function_generator.dir/Core/Src/spi.c.obj
  .text.HAL_SPI_MspDeInit
                 0x00000000       0x28 CMakeFiles/function_generator.dir/Core/Src/spi.c.obj
- .text          0x00000000        0x0 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
- .data          0x00000000        0x0 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
- .bss           0x00000000        0x0 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
- .text.LCD_Clear
-                0x00000000       0xa0 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
- .text.LCD_Backlight
-                0x00000000        0xc CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
  .text          0x00000000        0x0 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
  .data          0x00000000        0x0 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
  .bss           0x00000000        0x0 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
@@ -288,6 +281,13 @@ Discarded input sections
                 0x00000000        0xc CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
  .text.AD9833_OutputEnable
                 0x00000000       0x14 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
+ .text          0x00000000        0x0 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
+ .data          0x00000000        0x0 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
+ .text.LCD_Clear
+                0x00000000       0xa0 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
+ .text.LCD_Backlight
+                0x00000000        0xc CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
  .text          0x00000000        0x0 CMakeFiles/function_generator.dir/Core/Src/stm32f1xx_it.c.obj
  .data          0x00000000        0x0 CMakeFiles/function_generator.dir/Core/Src/stm32f1xx_it.c.obj
  .bss           0x00000000        0x0 CMakeFiles/function_generator.dir/Core/Src/stm32f1xx_it.c.obj
@@ -930,8 +930,8 @@ LOAD CMakeFiles/function_generator.dir/Core/Src/main.c.obj
 LOAD CMakeFiles/function_generator.dir/Core/Src/gpio.c.obj
 LOAD CMakeFiles/function_generator.dir/Core/Src/i2c.c.obj
 LOAD CMakeFiles/function_generator.dir/Core/Src/spi.c.obj
-LOAD CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
 LOAD CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
+LOAD CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
 LOAD CMakeFiles/function_generator.dir/Core/Src/stm32f1xx_it.c.obj
 LOAD CMakeFiles/function_generator.dir/Core/Src/stm32f1xx_hal_msp.c.obj
 LOAD CMakeFiles/function_generator.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj
@@ -1079,28 +1079,28 @@ LOAD C:/ST/STM32CubeCLT_1.15.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/
  .text.HAL_SPI_MspInit
                 0x08001bcc       0x68 CMakeFiles/function_generator.dir/Core/Src/spi.c.obj
                 0x08001bcc                HAL_SPI_MspInit
- .text.LCD_Init
-                0x08001c34      0x328 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
-                0x08001c34                LCD_Init
- .text.LCD_WriteString
-                0x08001f5c       0xb8 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
-                0x08001f5c                LCD_WriteString
- .text.LCD_SetCursor
-                0x08002014       0xb0 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
-                0x08002014                LCD_SetCursor
  .text.AD9833_WriteCfgReg
-                0x080020c4       0x9c CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
-                0x080020c4                AD9833_WriteCfgReg
+                0x08001c34       0x9c CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
+                0x08001c34                AD9833_WriteCfgReg
  .text.AD9833_SetWaveform
-                0x08002160       0x30 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
-                0x08002160                AD9833_SetWaveform
+                0x08001cd0       0x30 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
+                0x08001cd0                AD9833_SetWaveform
  .text.AD9833_SetFrequency
-                0x08002190       0xbc CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
-                0x08002190                AD9833_SetFrequency
- *fill*         0x0800224c        0x4 
+                0x08001d00       0xbc CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
+                0x08001d00                AD9833_SetFrequency
+ *fill*         0x08001dbc        0x4 
  .text.AD9833_Init
-                0x08002250      0x18c CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
-                0x08002250                AD9833_Init
+                0x08001dc0      0x18c CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
+                0x08001dc0                AD9833_Init
+ .text.LCD_Init
+                0x08001f4c      0x328 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
+                0x08001f4c                LCD_Init
+ .text.LCD_WriteString
+                0x08002274       0xb8 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
+                0x08002274                LCD_WriteString
+ .text.LCD_SetCursor
+                0x0800232c       0xb0 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
+                0x0800232c                LCD_SetCursor
  .text.NMI_Handler
                 0x080023dc        0x4 CMakeFiles/function_generator.dir/Core/Src/stm32f1xx_it.c.obj
                 0x080023dc                NMI_Handler
@@ -1414,23 +1414,23 @@ LOAD C:/ST/STM32CubeCLT_1.15.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/
  *fill*         0x2000021c        0x4 
  .bss.hspi1     0x20000220       0x58 CMakeFiles/function_generator.dir/Core/Src/spi.c.obj
                 0x20000220                hspi1
- .bss.backlight_state
-                0x20000278        0x1 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
  .bss._reset_state
-                0x20000279        0x1 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
-                0x20000279                _reset_state
+                0x20000278        0x1 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
+                0x20000278                _reset_state
  .bss._phase_source
-                0x2000027a        0x1 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
-                0x2000027a                _phase_source
+                0x20000279        0x1 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
+                0x20000279                _phase_source
  .bss._freq_source
-                0x2000027b        0x1 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
-                0x2000027b                _freq_source
+                0x2000027a        0x1 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
+                0x2000027a                _freq_source
  .bss._sleep_mode
-                0x2000027c        0x1 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
-                0x2000027c                _sleep_mode
+                0x2000027b        0x1 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
+                0x2000027b                _sleep_mode
  .bss._waveform
-                0x2000027d        0x1 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
-                0x2000027d                _waveform
+                0x2000027c        0x1 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
+                0x2000027c                _waveform
+ .bss.backlight_state
+                0x2000027d        0x1 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
  *fill*         0x2000027e        0x2 
  .bss.uwTick    0x20000280        0x4 CMakeFiles/function_generator.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
                 0x20000280                uwTick
@@ -1491,9 +1491,9 @@ LOAD C:/ST/STM32CubeCLT_1.15.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/
  .ARM.attributes
                 0x00000266       0x2d CMakeFiles/function_generator.dir/Core/Src/spi.c.obj
  .ARM.attributes
-                0x00000293       0x2d CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
+                0x00000293       0x2d CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
  .ARM.attributes
-                0x000002c0       0x2d CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
+                0x000002c0       0x2d CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
  .ARM.attributes
                 0x000002ed       0x2d CMakeFiles/function_generator.dir/Core/Src/stm32f1xx_it.c.obj
  .ARM.attributes
@@ -1593,8 +1593,8 @@ LOAD C:/ST/STM32CubeCLT_1.15.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/
  .comment       0x00000043       0x44 CMakeFiles/function_generator.dir/Core/Src/gpio.c.obj
  .comment       0x00000043       0x44 CMakeFiles/function_generator.dir/Core/Src/i2c.c.obj
  .comment       0x00000043       0x44 CMakeFiles/function_generator.dir/Core/Src/spi.c.obj
- .comment       0x00000043       0x44 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
  .comment       0x00000043       0x44 CMakeFiles/function_generator.dir/Core/Src/ad9833.c.obj
+ .comment       0x00000043       0x44 CMakeFiles/function_generator.dir/Core/Src/lcd.c.obj
  .comment       0x00000043       0x44 CMakeFiles/function_generator.dir/Core/Src/stm32f1xx_it.c.obj
  .comment       0x00000043       0x44 CMakeFiles/function_generator.dir/Core/Src/stm32f1xx_hal_msp.c.obj
  .comment       0x00000043       0x44 CMakeFiles/function_generator.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj

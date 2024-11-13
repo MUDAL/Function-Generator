@@ -1,8 +1,0 @@
-lcd.c:47:13:LCD_WriteNibble	32	static
-lcd.c:59:13:LCD_SendCmd	24	static
-lcd.c:71:13:LCD_SendData	24	static
-lcd.c:79:6:LCD_Init	8	static
-lcd.c:97:6:LCD_WriteString	16	static
-lcd.c:106:6:LCD_SetCursor	16	static
-lcd.c:115:6:LCD_Clear	8	static
-lcd.c:121:6:LCD_Backlight	16	static
