@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Blue_Pill")(type "KiCad")(uri "${KIPRJMOD}/Blue_Pill.pretty")(options "")(descr ""))
+)
