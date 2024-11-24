@@ -264,7 +264,7 @@
 				)
 			)
 		)
-		(symbol "Amplifier_Operational:LM7171xIN"
+		(symbol "Amplifier_Operational:LM6171D"
 			(pin_names
 				(offset 0.127)
 			)
@@ -280,7 +280,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "LM7171xIN"
+			(property "Value" "LM6171D"
 				(at 0 3.81 0)
 				(effects
 					(font
@@ -289,8 +289,18 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "Package_DIP:DIP-8_W7.62mm"
-				(at 0 0 0)
+			(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+				(at -2.54 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm6171.pdf"
+				(at 3.81 3.81 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -298,16 +308,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lm7171.pdf"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Single Very High Speed High Output Current Voltage Feedback Amplifier, DIP-8"
+			(property "Description" "High Speed Low Power Low Distortion Voltage Feedback Amplifier, SOIC-8"
 				(at 0 0 0)
 				(effects
 					(font
@@ -325,7 +326,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "DIP*W7.62mm*"
+			(property "ki_fp_filters" "SOIC*3.9x4.9mm*P1.27mm*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -334,7 +335,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "LM7171xIN_1_1"
+			(symbol "LM6171D_0_1"
 				(polyline
 					(pts
 						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
@@ -347,9 +348,11 @@
 						(type background)
 					)
 				)
+			)
+			(symbol "LM6171D_1_1"
 				(pin no_connect line
-					(at 0 2.54 270)
-					(length 5.08) hide
+					(at -2.54 2.54 270)
+					(length 2.54) hide
 					(name "NC"
 						(effects
 							(font
@@ -420,8 +423,8 @@
 					)
 				)
 				(pin no_connect line
-					(at 0 -2.54 90)
-					(length 5.08) hide
+					(at 0 2.54 270)
+					(length 2.54) hide
 					(name "NC"
 						(effects
 							(font
@@ -474,8 +477,8 @@
 					)
 				)
 				(pin no_connect line
-					(at 2.54 -1.27 90)
-					(length 6.35) hide
+					(at 0 -2.54 90)
+					(length 2.54) hide
 					(name "NC"
 						(effects
 							(font
@@ -7671,91 +7674,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Amplifier_Operational:LM7171xIN")
-		(at 219.71 120.65 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0c12856d-516a-4a82-8ae0-2b105b438971")
-		(property "Reference" "U4"
-			(at 226.822 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LM6171"
-			(at 226.568 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_DIP:DIP-8_W7.62mm"
-			(at 219.71 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lm7171.pdf"
-			(at 219.71 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Single Very High Speed High Output Current Voltage Feedback Amplifier, DIP-8"
-			(at 219.71 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "cef607c2-c63b-4816-b2a0-72a3c568ecc3")
-		)
-		(pin "7"
-			(uuid "b944b4c4-8efc-4a89-98e1-b4a101de5284")
-		)
-		(pin "8"
-			(uuid "318ace4e-365f-4178-a075-fbb370fb1b2f")
-		)
-		(pin "4"
-			(uuid "90faeaa9-5bcb-4aa4-860f-1bcfa06134a2")
-		)
-		(pin "6"
-			(uuid "68242a10-c3b1-4634-ac09-56d7e61aa356")
-		)
-		(pin "2"
-			(uuid "03c25e7a-317b-4e1c-a235-60045edf0c41")
-		)
-		(pin "5"
-			(uuid "ead68da6-bf07-4c1a-8b56-04cf707975ac")
-		)
-		(pin "1"
-			(uuid "2e27b93d-e5f4-4141-acce-f132c0652c1c")
-		)
-		(instances
-			(project ""
-				(path "/bf23c2e7-f61c-45f6-a71b-5973542355b0"
-					(reference "U4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Amplifier_Operational:LM358")
 		(at 215.9 33.02 0)
 		(unit 2)
@@ -10043,6 +9961,92 @@
 			(project ""
 				(path "/bf23c2e7-f61c-45f6-a71b-5973542355b0"
 					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:LM6171D")
+		(at 219.71 120.65 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "91c6a30c-4983-4bcd-96ba-d3db159dadf0")
+		(property "Reference" "U4"
+			(at 225.044 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LM6171D"
+			(at 225.044 117.348 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 217.17 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm6171.pdf"
+			(at 223.52 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "High Speed Low Power Low Distortion Voltage Feedback Amplifier, SOIC-8"
+			(at 219.71 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "0f0e0364-f395-44eb-9d65-d3dbddcea434")
+		)
+		(pin "2"
+			(uuid "456633a9-9267-40fd-8441-428ed4d47c84")
+		)
+		(pin "7"
+			(uuid "3c5075c5-6058-42e8-bdd1-d8e5119a2a09")
+		)
+		(pin "6"
+			(uuid "94d1ad58-e717-4efd-84b6-b2a102e223cf")
+		)
+		(pin "1"
+			(uuid "104364dc-6f2a-44dc-b61b-585729e4b137")
+		)
+		(pin "5"
+			(uuid "702dcda6-5894-4955-9453-120ea4247d8a")
+		)
+		(pin "8"
+			(uuid "5553422b-131e-480f-aaf9-ec581ba0f708")
+		)
+		(pin "4"
+			(uuid "c90bb3c8-edfe-4dbf-893b-96f202e36ac0")
+		)
+		(instances
+			(project ""
+				(path "/bf23c2e7-f61c-45f6-a71b-5973542355b0"
+					(reference "U4")
 					(unit 1)
 				)
 			)
