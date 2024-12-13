@@ -8,4 +8,6 @@
 - [Reddit discussion on high speed operational amplifiers](https://www.reddit.com/r/AskElectronics/comments/186d19x/high_speed_high_power_opamps/?rdt=65066)
 - [Ivanchenko59: AD9833-DDS-Generator STM32 library](https://github.com/Ivanchenko59/AD9833-DDS-Generator/tree/master)
 - [Mahamudul Hasan: Interfacing STM32 with I2C LCD: HAL example code included](https://embeddedthere.com/interfacing-stm32-with-i2c-lcd-with-hal-code-example/)
-- [AD9833 Programmable Waveform Generator: Datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/AD9833.pdf)  
+- [AD9833 Programmable Waveform Generator: Datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/AD9833.pdf)
+- [STM32 Blue Pill 3D model by Denshi Kousaku](https://grabcad.com/library/stm32f103c8t6-blue-pill-board-1)
+- [BNC Connector 3D model by Daniel Forero Morales](https://grabcad.com/library/bnc-connector--2)  
