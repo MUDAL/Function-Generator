@@ -1,0 +1,31 @@
+Ref,Val,Package,Mid X,Mid Y,Rotation,Layer
+C1,470uF,CP_Radial_D10.0mm_P5.00mm,123.74,-108.53,90,top
+C2,470uF,CP_Radial_D10.0mm_P5.00mm,123.74,-121.047677,90,top
+C3,0.33uF,C_Disc_D4.3mm_W1.9mm_P5.00mm,119.39,-133.98,90,top
+C4,0.33uF,C_Disc_D4.3mm_W1.9mm_P5.00mm,131.64,-134.03,90,top
+C5,0.1uF,C_Disc_D4.3mm_W1.9mm_P5.00mm,125.29,-133.98,90,top
+J1,Barrel_Jack,PinHeader_1x03_P2.54mm_Vertical,112.29,-62.5,0,top
+J2,Buttons,PinHeader_1x05_P2.54mm_Vertical,112.29,-86.13,0,top
+J3,LCD,PinHeader_1x04_P2.54mm_Vertical,165.54,-128.3,0,top
+J4,Selector,PinHeader_1x03_P2.54mm_Vertical,165.69,-93.36,0,top
+J5,AD9833,PinSocket_1x06_P2.54mm_Vertical,165.84,-73.15,0,top
+J6,50-ohm BNC,BNC_Amphenol_B6252HB-NPP3G-50_Horizontal,141.01,-67.96,0,top
+J7,Barrel_Jack,PinHeader_1x03_P2.54mm_Vertical,165.84,-61.05,0,top
+Q1,TIP41,TO-220-3_Vertical,113.29,-108.58,90,top
+Q2,TIP42,TO-220-3_Vertical,113.29,-120.93,90,top
+R1,10k,R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,142.98,-79.43,0,top
+R2,10k,R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,142.98,-85.78,0,top
+R3,22k,R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,142.98,-92.18,0,top
+R4,2k,R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,142.98,-98.78,0,top
+R5,22k,R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,143.02,-105.23,0,top
+R6,2k,R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,143.02,-111.83,0,top
+R7,1k,R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,142.87,-118.23,0,top
+R8,1k,R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,142.87,-124.58,0,top
+RV1,10k,PinHeader_1x03_P2.54mm_Vertical,165.64,-104.83,0,top
+RV2,10k,PinHeader_1x03_P2.54mm_Vertical,165.64,-116.82,0,top
+SW1,SW_SPDT,PinHeader_1x03_P2.54mm_Vertical,112.29,-74.48,0,top
+U1,LM358,DIP-8_W7.62mm,120.36,-96.03,90,top
+U2,STM32 Blue Pill,Blue_Pill,139.15,-76.22,0,top
+U3,L7805,TO-220-3_Vertical,113.29,-134.03,90,top
+U4,LM6171,SOIC-8_3.9x4.9mm_P1.27mm,123.705,-79.825,90,top
+U5,TL071,DIP-8_W7.62mm,120.55,-71.53,90,top
