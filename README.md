@@ -1,5 +1,9 @@
 # Function-Generator
 
+![func_gen](https://github.com/user-attachments/assets/ff415f79-19f0-43a4-8aba-e283680394e1)  
+![func_gen_tri](https://github.com/user-attachments/assets/f3787919-549c-4e51-97bf-9f1d434ce5a6)  
+![func_gen_sqr](https://github.com/user-attachments/assets/9843b235-81ca-47c1-86ae-d852c3ea3545)  
+
 ## Helpful resources  
 - [Rail splitter circuit with virtual push-pull topology: Discussion on EEVBlog](https://www.eevblog.com/forum/beginners/virtual-ground-push-pull/)
 - [How the power supply rail splitter circuit works: An article written by Apichet Garaipoom](https://www.eleccircuit.com/power-supply-splitter-circuit-using-op-amp/)
