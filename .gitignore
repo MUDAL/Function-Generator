@@ -1,6 +1,14 @@
 # Kicad backups
 *backups
 
-# Useless extension
+build/
+#**/Firmware/.vscode
+#**/Firmware/build.ninja
+#**/Firmware/cmake_install
+#**/Firmware/CMakeCache
+#**/Firmware/CMakePresets
+#**/Firmware/compile_commands
+
+# Useless extension (WSL)
 *Zone.identifier
 

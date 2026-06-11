@@ -1,0 +1,18 @@
+LTspice 24.1.10 for Windows
+Circuit: C:\Users\olaol\Desktop\Function-Generator\Simulation\split_power_supply.net
+Start Time: Thu Jun 11 19:15:41 2026
+solver = Normal
+Maximum thread count: 8
+tnom = 27
+temp = 27
+method = trap
+C1: Increased Cpar to 4.7e-10
+C2: Increased Cpar to 4.7e-10
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 0.415 seconds.
+
+Files loaded:
+C:\Users\olaol\Desktop\Function-Generator\Simulation\split_power_supply.net
+C:\Users\olaol\AppData\Local\LTspice\lib\cmp\standard.bjt
+C:\Users\olaol\AppData\Local\LTspice\lib\sub\UniversalOpAmp2.lib
+
