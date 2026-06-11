@@ -10,8 +10,11 @@
 **/fp-info-cache
 **/*.kicad_prl
 
+# VS code and build artefacts
 **/build/
 **/.vscode
+
+# LTspice artefacts
 **/*.log
 **/*.raw
 
