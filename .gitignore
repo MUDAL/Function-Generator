@@ -1,8 +1,6 @@
 # Kicad artefacts
 *backups
 **/*.net
-<<<<<<< HEAD
-=======
 **/_autosave-*
 **/*.bak
 **/*.bck
@@ -11,7 +9,6 @@
 **/*.lck
 **/fp-info-cache
 **/*.kicad_prl
->>>>>>> feature-refactor
 
 **/build/
 **/.vscode
