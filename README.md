@@ -19,11 +19,11 @@ This custom function generator is capable of outputting sine, square, and triang
 
 ## Video Demos  
 1. [Introduction and setup](https://drive.google.com/file/d/1G1p_1wfvQfPOZcchX9nzK7hOxaMMsMGi/view?usp=sharing)  
-2. [Explanation of system components](https://drive.google.com/file/d/1G7yjkzn5fIc1sIlq5uEcu3o-C55AYfCc/view?usp=sharing)   
-3. [Function generator in action: Amplitude control](https://drive.google.com/file/d/1G8uY1fm0E4KQyqx2Z7YYd4BkqQ50rcqq/view?usp=drive_link)    
-4. [Function generator in action: Waveform selection](https://drive.google.com/file/d/1GDZh32V0VEGifeL3dQ4JVQDjZ7OjrVeD/view?usp=sharing)   
-5. [Function generator in action: Frequency adjustment](https://drive.google.com/file/d/1HKlgbLmxHBRYYwaI7JoV4cJPAN9Vxr-B/view?usp=sharing)   
-6. [Function generator in action: DC magnitude and polarity control](https://drive.google.com/file/d/1HQdHPNzv4oxDs-NsEo27Fcs3HjVcjQDH/view?usp=sharing)    
+2. [System components](https://drive.google.com/file/d/1G7yjkzn5fIc1sIlq5uEcu3o-C55AYfCc/view?usp=sharing)   
+3. [Amplitude control](https://drive.google.com/file/d/1G8uY1fm0E4KQyqx2Z7YYd4BkqQ50rcqq/view?usp=drive_link)    
+4. [Waveform selection](https://drive.google.com/file/d/1GDZh32V0VEGifeL3dQ4JVQDjZ7OjrVeD/view?usp=sharing)   
+5. [Frequency adjustment](https://drive.google.com/file/d/1HKlgbLmxHBRYYwaI7JoV4cJPAN9Vxr-B/view?usp=sharing)   
+6. [DC magnitude and polarity control](https://drive.google.com/file/d/1HQdHPNzv4oxDs-NsEo27Fcs3HjVcjQDH/view?usp=sharing)    
 
 ## Images
 ![func_gen](https://github.com/user-attachments/assets/ff415f79-19f0-43a4-8aba-e283680394e1)  
